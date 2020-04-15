@@ -36,8 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE5_NAME = "HasPost";
 
     public static final String TABLE6_NAME = "GroupMembers";
-    public static final String GroupMembers_COL_3 = "NoOfPost";
-    public static final String GroupMembers_COL_4 = "Admin";
+    public static final String GroupMembers_COL_3 = "Admin";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -46,12 +45,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE1_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT, Username TEXT UNIQUE NOT NULL, EmailID TEXT NOT NULL, HallName TEXT, HallRoomNo TEXT, Password TEXT NOT NULL)");
-        db.execSQL("create table " + TABLE2_NAME +" (UserID INTEGER, Phone TEXT NOT NULL, PRIMARY KEY(UserID, Phone), FOREIGN KEY(UserID) REFERENCES " + TABLE1_NAME + "(ID))");
-        db.execSQL("create table " + TABLE3_NAME +" (PostID INTEGER PRIMARY KEY AUTOINCREMENT, UserID INTEGER, PostDescription TEXT, PostTime TEXT, FOREIGN KEY(UserID) REFERENCES " + TABLE1_NAME + "(ID))");
-        db.execSQL("create table " + TABLE4_NAME +" (GroupID INTEGER PRIMARY KEY AUTOINCREMENT,GroupName TEXT,  GroupDescription TEXT, CreationTime TEXT)");
-        db.execSQL("create table " + TABLE5_NAME +" (UserID INTEGER , PostID INTEGER, PRIMARY KEY(UserID, PostID), FOREIGN KEY(UserID) REFERENCES " + TABLE1_NAME + "(ID), FOREIGN KEY(PostID) REFERENCES " + TABLE3_NAME + "(PostID))");
-        db.execSQL("create table " + TABLE6_NAME +" (UserID INTEGER , GroupID INTEGER, NoOfPost INTEGER, Admin INTEGER, PRIMARY KEY(UserID, GroupID), FOREIGN KEY(UserID) REFERENCES " + TABLE1_NAME + "(ID), FOREIGN KEY(GroupID) REFERENCES " + TABLE4_NAME + "(GroupID))");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE1_NAME +
+                " (" +  Profile_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        Profile_COL_2 + " TEXT UNIQUE NOT NULL, " +
+                        Profile_COL_3 + " TEXT NOT NULL, " +
+                        Profile_COL_4 + " TEXT, " +
+                        Profile_COL_5 + " TEXT, " +
+                        Profile_COL_6 + " TEXT NOT NULL)");
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE2_NAME +
+                " ("+   UserID_COL + " INTEGER, " +
+                        PhoneNo_COL_2 +  " TEXT, " +
+                "PRIMARY KEY(" + UserID_COL+ ", " + PhoneNo_COL_2 + " ), " +
+                "FOREIGN KEY(" + UserID_COL+ ") REFERENCES " + TABLE1_NAME + "(" + Profile_COL_1 + "))");
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE3_NAME +
+                " (" +  Post_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                        UserID_COL + " INTEGER NOT NULL, " +
+                        Post_COL_2 + " TEXT NOT NULL, " +
+                        Post_COL_3 + " TEXT NOT NULL, " +
+                "FOREIGN KEY(" + UserID_COL+ ") REFERENCES " + TABLE1_NAME + "(" + Profile_COL_1 + "))");
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE4_NAME +
+                " (" +  Group_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        Group_COL_2 + " TEXT NOT NULL, " +
+                        Group_COL_3 + " TEXT NOT NULL, " +
+                        Group_COL_4 + " TEXT NOT NULL )");
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE5_NAME +
+                " (" +  Group_COL_1 + " INTEGER ," +
+                        Post_COL_1  + " INTEGER, " +
+                "PRIMARY KEY(" + Group_COL_1+ ", "+ Post_COL_1 +"), " +
+                "FOREIGN KEY(" + Group_COL_1 + ") REFERENCES " + TABLE4_NAME + "(" + Group_COL_1 + "), " +
+                "FOREIGN KEY(" + Post_COL_1 + ") REFERENCES " + TABLE3_NAME + "(" + Post_COL_1 + "))");
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE6_NAME +
+                " (" +  UserID_COL+ " INTEGER, " +
+                        Group_COL_1+ " INTEGER, " +
+                        GroupMembers_COL_3+ " INTEGER NOT NULL, " +
+                "PRIMARY KEY(" + UserID_COL + ", " + Group_COL_1 +"), " +
+                "FOREIGN KEY(" + UserID_COL + ") REFERENCES " + TABLE1_NAME + "(" + Profile_COL_1 + "), " +
+                "FOREIGN KEY(" + Group_COL_1 + ") REFERENCES " + TABLE4_NAME + "(" + Group_COL_1 + "))");
     }
 
     @Override
@@ -64,82 +98,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE6_NAME);
         onCreate(db);
     }
-
-//    public boolean insert_TABLE1(String Name , String EmailID, String HallName, String HallRoomNo) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(Profile_COL_2, Name);
-//        contentValues.put(Profile_COL_3, EmailID);
-//        contentValues.put(Profile_COL_4, HallName);
-//        contentValues.put(Profile_COL_5, HallRoomNo);
-//        long result = db.insert(TABLE1_NAME, null, contentValues);
-//        if(result == -1)
-//            return false;
-//        else
-//            return true;
-//    }
-
-//    public boolean insert_TABLE2(int UserID, String Phone) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(UserID_COL, UserID);
-//        contentValues.put(PhoneNo_COL_2, Phone);
-//        long result = db.insert(TABLE2_NAME,null ,contentValues);
-//        if(result == -1)
-//            return false;
-//        else
-//            return true;
-//    }
-
-//    public boolean insert_TABLE3(String PostDescription,String PostTime, int UserID) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(Post_COL_2, PostDescription);
-//        contentValues.put(Post_COL_3, PostTime);
-//        contentValues.put(UserID_COL,UserID);
-//        long result = db.insert(TABLE3_NAME,null ,contentValues);
-//        if(result == -1)
-//            return false;
-//        else
-//            return true;
-//    }
-
-//    public boolean insert_TABLE4(String GroupName,String GroupDescription,String CreationTime) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(Group_COL_2, GroupName);
-//        contentValues.put(Group_COL_3, GroupDescription);
-//        contentValues.put(Group_COL_4, CreationTime);
-//        long result = db.insert(TABLE4_NAME,null ,contentValues);
-//        if(result == -1)
-//            return false;
-//        else
-//            return true;
-//    }
-
-//    public boolean insert_TABLE5(int GroupID, int PostID) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(Group_COL_1, GroupID);
-//        contentValues.put(Post_COL_1, PostID);
-//        long result = db.insert(TABLE5_NAME,null ,contentValues);
-//        if(result == -1)
-//            return false;
-//        else
-//            return true;
-//    }
-
-//    public boolean insert_TABLE6(int UserID, int GroupID, int NoOfPost, int Admin) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(UserID_COL, UserID);
-//        contentValues.put(Group_COL_1, GroupID);
-//        contentValues.put(GroupMembers_COL_3, NoOfPost);
-//        contentValues.put(GroupMembers_COL_4, Admin);
-//        long result = db.insert(TABLE6_NAME,null ,contentValues);
-//        if(result == -1)
-//            return false;
-//        else
-//            return true;
-//    }
 }

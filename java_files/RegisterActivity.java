@@ -87,6 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void CheckUserAlreadyExistsOrNot() {
         sqLiteDatabaseObj = databaseHelper.getWritableDatabase();
+
         cursor = sqLiteDatabaseObj.query(databaseHelper.TABLE1_NAME, null, " "+databaseHelper.Profile_COL_2 + "=?", new String[]{UsernameHolder}, null, null, null);
 
         while(cursor.moveToNext()) {
@@ -115,6 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
             sqLiteDatabaseObj.close();
             Toast.makeText(RegisterActivity.this,"User Registered Successfully", Toast.LENGTH_LONG).show();
 
+            finish();
             Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
             intent.putExtra(UserName, UsernameHolder);
             startActivity(intent);
