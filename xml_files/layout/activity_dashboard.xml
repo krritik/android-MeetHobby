@@ -8,105 +8,117 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
+        android:textColor="#FFFFFF"
         tools:context=".DashboardActivity">
 
     <TextView
-        android:text="DashBoard"
-        android:gravity="center"
-        android:textColor="#000"
-        android:textSize="25dp"
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textViewTitle" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="DASHBOARD"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/button1"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/textViewTitle"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/textViewTitle"
+        android:drawableRight="@android:drawable/ic_lock_power_off"
         android:text="LOGOUT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/button1" />
+        android:textColor="#000" />
 
     <TextView
-        android:text="Username : "
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:gravity="center"
-        android:textColor="#000"
-        android:textSize="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textViewName"/>
+        android:text="Hello "
+        android:textAllCaps="true"
+        android:textSize="20dp" />
 
     <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_marginTop="20dp"
+        android:gravity="clip_horizontal|center"
         android:text="Email : "
-        android:gravity="center"
-        android:textColor="#000"
-        android:textSize="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textViewEmail" />
+        android:textSize="20dp" />
 
     <TextView
-        android:text="Hall Name: "
-        android:gravity="center"
-        android:textColor="#000"
-        android:textSize="20dp"
+        android:id="@+id/textViewHall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewEmail"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/textViewHall" />
+        android:gravity="center"
+        android:text="Hall Name: "
+        android:textSize="20dp" />
 
     <TextView
-        android:text="Room No : "
-        android:gravity="center"
-        android:textColor="#000"
-        android:textSize="20dp"
+        android:id="@+id/textViewRoomNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewHall"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/textViewRoomNo" />
-
+        android:gravity="center"
+        android:text="Room No : "
+        android:textSize="20dp" />
 
 
     <Button
-        android:text="Create New Group"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewRoomNo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/button2" />
+        android:text="Create New Group"
+        android:textColor="#000" />
 
     <Button
-        android:text="Your Groups"
-        android:layout_width="wrap_content"
+        android:id="@+id/button3"
+        android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/button3" />
+        android:text="Your Groups"
+        android:textColor="#000" />
 
     <Button
-        android:text="Join a Group"
-        android:layout_width="wrap_content"
+        android:id="@+id/button4"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/button4" />
+        android:text="Join a Group"
+        android:textColor="#000" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewName"
+        android:layout_marginTop="30dp"
+        android:text="Your Profile info are below"
+        android:textSize="18sp" />
 
 
 </RelativeLayout>
