@@ -11,57 +11,87 @@
         tools:context=".CreateGroupActivity">
 
     <Button
-        android:text=" Back "
+        android:id="@+id/buttonHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/buttonHome" />
+        android:drawableLeft="@android:drawable/ic_menu_revert"
+        android:text=" Back "
+        android:background="#000"
+        android:textColor="#ffffff" />
 
     <TextView
-        android:text="Group Creation"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#000"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonHome"
+        android:layout_below="@id/buttonHome"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
+        android:layout_marginTop="58dp"
+        android:gravity="center"
+        android:text="Group Creation"
+        android:textSize="30sp" />
 
     <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="Enter Group Name"
-        android:textColor="#000"
-        android:ems="10"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:id="@+id/editGroupName"
-        android:gravity="center" />
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@id/textView5"
+        android:background="#555353"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Group Name"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ffffff" />
 
     <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="Enter Group Description"
-        android:textColor="#000"
-        android:ems="10"
-        android:layout_below="@+id/editGroupName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:id="@+id/editGroupDescription"
-        android:gravity="center"/>
+        android:layout_width="235dp"
+        android:layout_height="154dp"
+        android:layout_below="@+id/editGroupName"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="31dp"
+        android:layout_toRightOf="@id/textView6"
+        android:background="#555353"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Group Description"
+        android:inputType="textMultiLine"
+        android:lineSpacingExtra="8sp"
+        android:lines="5"
+        android:maxLines="5"
+        android:singleLine="false"
+        android:textColor="#FFFCFC"
+        android:textColorHint="#ffffff" />
 
     <Button
+        android:id="@+id/buttonCreateGroup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonCreateGroup"
         android:layout_below="@+id/editGroupDescription"
-        android:layout_marginTop="20dp"
-        android:text="Register From here " />
+        android:layout_marginTop="50dp"
+        android:text="Register From here "
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="50dp"
+        android:text="Group Name:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="133dp"
+        android:layout_height="63dp"
+        android:layout_below="@id/editGroupName"
+        android:layout_marginTop="31dp"
+        android:text="Group Description:"
+        android:textSize="24dp" />
 
 
 </RelativeLayout>

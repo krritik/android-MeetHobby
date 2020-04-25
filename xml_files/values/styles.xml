@@ -1,0 +1,39 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Theme.Plaid" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+<!--        <item name="materialButtonStyle">@style/MyButtonTheme</item>-->
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+        <item name="colorPrimary">@color/design_default_color_on_secondary</item>
+        <item name="colorPrimaryDark">@color/common_google_signin_btn_text_dark_focused</item>
+        <item name="colorAccent">@color/design_default_color_primary_dark</item>
+        <item name="android:windowBackground">@color/common_google_signin_btn_text_dark_focused</item>
+    </style>
+    <style name="MyButtonTheme" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ButtonStyleTextColor</item>
+    </style>
+    <style name="ButtonStyleTextColor">
+        <!-- For filled buttons, your theme's colorPrimary provides the default background color of the component, and -->
+        <!--the text color is colorOnPrimary -->
+        <item name="colorPrimary">#2196F3</item>
+        <item name="colorOnPrimary">#000</item>
+
+    </style>
+    <style name="TextAppearance.AppCompat.Button.Custom">
+        <item name="android:textColor">#000</item>
+    </style>
+    <style name="AppTheme2" parent="Theme.AppCompat.DayNight">
+
+    </style>
+
+</resources>

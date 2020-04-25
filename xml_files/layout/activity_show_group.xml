@@ -7,28 +7,29 @@
     tools:context=".ShowGroupActivity">
 
     <TextView
-        android:text="Your Groups"
-        android:gravity="center"
-        android:textColor="#000"
-        android:textSize="25dp"
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonHome"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textViewTitle" />
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Your Groups"
+        android:textSize="25dp" />
 
     <Button
-        android:text=" Back "
+        android:id="@+id/buttonHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/buttonHome" />
+        android:drawableLeft="@android:drawable/ic_menu_revert"
+        android:text=" Back "
+        android:background="#000"
+        android:textColor="#ffffff" />
 
     <ListView
         android:id="@+id/listView"
-        android:layout_below="@+id/buttonHome"
+        android:layout_below="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

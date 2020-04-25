@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText Username, Email, Password, Hall, RoomNo;
-    Button Register;
+    Button Register,buttonHome;
     String UsernameHolder, EmailHolder, PasswordHolder, HallHolder, RoomNoHolder;
     Boolean EditTextEmptyHolder;
     SQLiteDatabase sqLiteDatabaseObj;
@@ -39,6 +39,13 @@ public class RegisterActivity extends AppCompatActivity {
         RoomNo = (EditText)findViewById(R.id.editRoomNo);
 
         databaseHelper = new DatabaseHelper(this);
+
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
