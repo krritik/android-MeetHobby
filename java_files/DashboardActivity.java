@@ -16,11 +16,11 @@ import org.w3c.dom.Text;
 public class DashboardActivity extends AppCompatActivity {
     String UsernameHolder, EmailHolder, HallHolder, RoomNoHolder;
     TextView Username, Email, Hall, RoomNo;
-    Button LogOut;
+    Button LogOut, CreateGroup, JoinGroup, ShowGroup;
     Cursor cursor;
     SQLiteDatabase sqLiteDatabaseObj;
     DatabaseHelper databaseHelper;
-
+    int UserIDHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,9 @@ public class DashboardActivity extends AppCompatActivity {
         Hall = (TextView)findViewById(R.id.textViewHall);
         RoomNo = (TextView)findViewById(R.id.textViewRoomNo);
         LogOut = (Button)findViewById(R.id.button1);
+        CreateGroup = (Button)findViewById(R.id.button2);
+        ShowGroup = (Button)findViewById(R.id.button3);
+        JoinGroup = (Button)findViewById(R.id.button4);
 
         databaseHelper = new DatabaseHelper(this);
         sqLiteDatabaseObj = databaseHelper.getWritableDatabase();
@@ -45,6 +48,7 @@ public class DashboardActivity extends AppCompatActivity {
             EmailHolder = cursor.getString(cursor.getColumnIndex(databaseHelper.Profile_COL_3));
             HallHolder = cursor.getString(cursor.getColumnIndex(databaseHelper.Profile_COL_4));
             RoomNoHolder = cursor.getString(cursor.getColumnIndex(databaseHelper.Profile_COL_5));
+            UserIDHolder = cursor.getInt(cursor.getColumnIndex(databaseHelper.Profile_COL_1));
             cursor.close();
         }
 
@@ -63,5 +67,37 @@ public class DashboardActivity extends AppCompatActivity {
                 Toast.makeText(DashboardActivity.this,"Log Out Successfull", Toast.LENGTH_LONG).show();
             }
         });
+
+        CreateGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, CreateGroupActivity.class);
+                intent.putExtra("UserID_pass", UserIDHolder);
+                startActivity(intent);
+                Toast.makeText(DashboardActivity.this,"Now in create group area", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        ShowGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, ShowGroupActivity.class);
+                intent.putExtra("UserID_pass", UserIDHolder);
+                startActivity(intent);
+                Toast.makeText(DashboardActivity.this,"Your groups entered", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        JoinGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, JoinGroupActivity.class);
+                intent.putExtra("UserID_pass", UserIDHolder);
+                startActivity(intent);
+                Toast.makeText(DashboardActivity.this,"New Groups area entered", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
 }

@@ -21,6 +21,15 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/textViewTitle" />
 
+    <Button
+        android:text="LOGOUT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/button1" />
+
     <TextView
         android:text="Username : "
         android:gravity="center"
@@ -28,7 +37,7 @@
         android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTitle"
+        android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:id="@+id/textViewName"/>
@@ -69,13 +78,35 @@
         android:layout_marginTop="20dp"
         android:id="@+id/textViewRoomNo" />
 
+
+
     <Button
-        android:text="LOGOUT"
+        android:text="Create New Group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewRoomNo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/button1" />
+        android:id="@+id/button2" />
+
+    <Button
+        android:text="Your Groups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/button3" />
+
+    <Button
+        android:text="Join a Group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/button4" />
+
+
 
 </RelativeLayout>
