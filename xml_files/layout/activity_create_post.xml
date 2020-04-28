@@ -29,7 +29,7 @@
         android:fontFamily="casual"
         android:gravity="center"
         android:text="Create Post"
-        android:textColor="#FAF6F6"
+        android:textColor="#FF9800"
         android:textSize="30dp" />
 
 
@@ -40,7 +40,7 @@
         android:layout_below="@+id/textView"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/textView7"
-        android:background="#555353"
+        android:background="#9C1B1800"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Post Content"
@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editPostDescription"
         android:layout_marginTop="20dp"
+        android:background="#FFC107"
         android:text="Post IT "
         android:textColor="#000"
         android:textStyle="bold" />
@@ -69,6 +70,7 @@
         android:layout_below="@id/textView"
         android:layout_alignTop="@id/editPostDescription"
         android:text="Post:"
+        android:textColor="#FFC107"
         android:textSize="24dp" />
 
 

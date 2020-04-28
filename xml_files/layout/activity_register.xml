@@ -30,7 +30,7 @@
         android:gravity="center"
         android:paddingTop="50dp"
         android:text="User Registration"
-        android:textColor="#ffffff"
+        android:textColor="#673AB7"
         android:textSize="20dp" />
 
     <EditText
@@ -105,12 +105,13 @@
 
     <Button
 
+        android:id="@+id/buttonRegister"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonRegister"
         android:layout_below="@+id/editRoomNo"
         android:layout_marginTop="20dp"
-        android:textColor="#000"
-        android:text="Register From here " />
+        android:background="#3F51B5"
+        android:text="Register From here "
+        android:textColor="#000" />
 
 </RelativeLayout>

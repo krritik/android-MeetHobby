@@ -28,6 +28,7 @@
         android:layout_marginTop="58dp"
         android:gravity="center"
         android:text="Group Creation"
+        android:textColor="#4CAF50"
         android:textSize="30sp" />
 
     <EditText
@@ -38,7 +39,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="50dp"
         android:layout_toRightOf="@id/textView5"
-        android:background="#555353"
+        android:background="#001300"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Group Name"
@@ -54,7 +55,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="31dp"
         android:layout_toRightOf="@id/textView6"
-        android:background="#555353"
+        android:background="#001300"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Group Description"
@@ -72,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editGroupDescription"
         android:layout_marginTop="50dp"
+        android:background="#4CAF50"
         android:text="Register From here "
         android:textColor="#000" />
 
@@ -82,15 +84,17 @@
         android:layout_below="@id/textView"
         android:layout_marginTop="50dp"
         android:text="Group Name:"
+        android:textColor="#4CAF50"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="133dp"
-        android:layout_height="63dp"
+        android:layout_width="132dp"
+        android:layout_height="71dp"
         android:layout_below="@id/editGroupName"
         android:layout_marginTop="31dp"
         android:text="Group Description:"
+        android:textColor="#4CAF50"
         android:textSize="24dp" />
 
 
