@@ -22,7 +22,7 @@
         android:fontFamily="monospace"
         android:gravity="center"
         android:text="DASHBOARD"
-        android:textColor="#FFFFFF"
+        android:textColor="#8BC34A"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -34,6 +34,7 @@
         android:layout_marginLeft="71dp"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/textViewTitle"
+        android:background="#FF0000"
         android:drawableRight="@android:drawable/ic_lock_power_off"
         android:text="LOGOUT"
         android:textColor="#000" />
@@ -48,6 +49,7 @@
         android:gravity="center"
         android:text="Hello "
         android:textAllCaps="true"
+        android:textColor="#FFEB3B"
         android:textSize="20dp" />
 
     <TextView
@@ -58,6 +60,7 @@
         android:layout_marginTop="20dp"
         android:gravity="clip_horizontal|center"
         android:text="Email : "
+        android:textColor="#FFEB3B"
         android:textSize="20dp" />
 
     <TextView
@@ -68,6 +71,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Hall Name: "
+        android:textColor="#FFEB3B"
         android:textSize="20dp" />
 
     <TextView
@@ -78,16 +82,18 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Room No : "
+        android:textColor="#FFEB3B"
         android:textSize="20dp" />
 
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="157dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewRoomNo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:background="#2196F3"
         android:text="Create New Group"
         android:textColor="#000" />
 
@@ -98,6 +104,7 @@
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:background="#2196F3"
         android:text="Your Groups"
         android:textColor="#000" />
 
@@ -108,6 +115,7 @@
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:background="#2196F3"
         android:text="Join a Group"
         android:textColor="#000" />
 
@@ -118,6 +126,7 @@
         android:layout_below="@id/textViewName"
         android:layout_marginTop="30dp"
         android:text="Your Profile info are below"
+        android:textColor="#FFEB3B"
         android:textSize="18sp" />
 
 
