@@ -14,10 +14,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText Username, Email, Password, Hall, RoomNo;
-    Button Register;
+    EditText Username, Email, Password, Hall, RoomNo, Phone1, Phone2;
+    Button Register, buttonHome;
+    int UserIDHolder;
     String UsernameHolder, EmailHolder, PasswordHolder, HallHolder, RoomNoHolder;
-    Boolean EditTextEmptyHolder;
+    String Phone1Holder, Phone2Holder;
+    Boolean EditTextEmptyHolder, isPhone2;
     SQLiteDatabase sqLiteDatabaseObj;
     String SQLiteDataBaseQueryHolder;
     DatabaseHelper databaseHelper;
@@ -31,14 +33,24 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         Register = (Button)findViewById(R.id.buttonRegister);
+        buttonHome = (Button)findViewById(R.id.buttonHome);
 
         Username = (EditText)findViewById(R.id.editName);
         Email = (EditText)findViewById(R.id.editEmail);
         Password = (EditText)findViewById(R.id.editPassword);
         Hall = (EditText)findViewById(R.id.editHall);
         RoomNo = (EditText)findViewById(R.id.editRoomNo);
+        Phone1 = (EditText)findViewById(R.id.editPhone1);
+        Phone2 = (EditText)findViewById(R.id.editPhone2);
 
         databaseHelper = new DatabaseHelper(this);
+
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +80,21 @@ public class RegisterActivity extends AppCompatActivity {
         PasswordHolder = Password.getText().toString();
         HallHolder = Hall.getText().toString();
         RoomNoHolder = RoomNo.getText().toString();
+        Phone1Holder = Phone1.getText().toString();
+        Phone2Holder = Phone2.getText().toString();
 
-        if(TextUtils.isEmpty(UsernameHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder)) {
+        if(TextUtils.isEmpty(UsernameHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder)|| TextUtils.isEmpty(HallHolder) || TextUtils.isEmpty(RoomNoHolder) || TextUtils.isEmpty(Phone1Holder)) {
             EditTextEmptyHolder = false;
         }
         else {
             EditTextEmptyHolder = true;
+        }
+
+        if(TextUtils.isEmpty(Phone2Holder)) {
+            isPhone2 = false;
+        }
+        else {
+            isPhone2 = true;
         }
     }
 
@@ -83,6 +104,8 @@ public class RegisterActivity extends AppCompatActivity {
         Password.getText().clear();
         Hall.getText().clear();
         RoomNo.getText().clear();
+        Phone1.getText().clear();
+        Phone2.getText().clear();
     }
 
     public void CheckUserAlreadyExistsOrNot() {
@@ -113,6 +136,19 @@ public class RegisterActivity extends AppCompatActivity {
         if(EditTextEmptyHolder == true) {
             SQLiteDataBaseQueryHolder = "INSERT INTO " +databaseHelper.TABLE1_NAME+ " (Username, EmailID, Password, HallName, HallRoomNo) VALUES('"+UsernameHolder+"', '"+EmailHolder+"', '"+PasswordHolder+"', '"+HallHolder+"', '"+RoomNoHolder+"');";
             sqLiteDatabaseObj.execSQL(SQLiteDataBaseQueryHolder);
+
+            cursor = sqLiteDatabaseObj.rawQuery("SELECT MAX(ID) FROM "+databaseHelper.TABLE1_NAME, null);
+            cursor.moveToFirst();
+            UserIDHolder = cursor.getInt(0);
+
+            SQLiteDataBaseQueryHolder = "INSERT INTO " +databaseHelper.TABLE2_NAME+ " (UserID, Phone) VALUES('"+ UserIDHolder+"', '"+Phone1Holder+"');";
+            sqLiteDatabaseObj.execSQL(SQLiteDataBaseQueryHolder);
+
+            if(isPhone2) {
+                SQLiteDataBaseQueryHolder = "INSERT INTO " +databaseHelper.TABLE2_NAME+ " (UserID, Phone) VALUES('"+ UserIDHolder+"', '"+Phone2Holder+"');";
+                sqLiteDatabaseObj.execSQL(SQLiteDataBaseQueryHolder);
+            }
+
             sqLiteDatabaseObj.close();
             Toast.makeText(RegisterActivity.this,"User Registered Successfully", Toast.LENGTH_LONG).show();
 

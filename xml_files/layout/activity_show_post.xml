@@ -7,25 +7,37 @@ android:layout_height="match_parent"
 tools:context=".ShowPostActivity">
 
     <Button
-        android:text="Back "
+        android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/buttonBack" />
+        android:drawableLeft="@android:drawable/ic_menu_revert"
+        android:text=" Back "
+        android:background="#000"
+        android:textColor="#ffffff" />
+
+<!--    <Button-->
+<!--        android:text="Back "-->
+<!--        android:textColor="#000"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:id="@+id/buttonBack" />-->
+
 
     <Button
-        android:text="Create a Post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonBack"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/buttonCreatePost" />
-
-
+        android:id="@+id/buttonCreatePost"
+        android:layout_width="199dp"
+        android:layout_height="67dp"
+        android:layout_marginLeft="119dp"
+        android:layout_toRightOf="@id/buttonBack"
+        android:background="#DACB4B"
+        android:drawableLeft="@android:drawable/ic_menu_add"
+        android:text="Create New Post"
+        android:textColor="#000" />
 
     <ListView
-        android:paddingTop="10dp"
+        android:paddingTop="20dp"
         android:id="@+id/listViewPost"
         android:layout_below="@+id/buttonCreatePost"
         android:layout_width="match_parent"

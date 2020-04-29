@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical" >
+
 
     <TextView
         android:id="@+id/textViewDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:text="Post Content"
-        android:textAlignment="center"
-        android:textSize="25dp"
-        android:gravity="center_horizontal" />
-
+        android:textAlignment="textStart"
+        android:textColor="#9E9999"
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/textViewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewDescription"
+        android:layout_gravity="end"
         android:paddingTop="5dp"
         android:text="username"
-        android:textStyle="bold"
         android:textAlignment="textEnd"
+        android:textColor="#FF0000"
         android:textSize="15dp"
-        android:layout_gravity="end" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewPostTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewUser"
+        android:layout_gravity="end"
         android:paddingTop="5dp"
         android:paddingBottom="2dp"
         android:text="PostTime"
         android:textAlignment="textEnd"
-        android:textSize="15dp"
-        android:layout_gravity="end" />
+        android:textColor="#00FF0A"
+        android:textSize="15dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="9dp"
+        android:background="@android:drawable/button_onoff_indicator_off" />
 </RelativeLayout>

@@ -11,46 +11,67 @@
     tools:context=".CreatePostActivity">
 
     <Button
-        android:text="Back "
+        android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/buttonBack" />
+        android:background="#000"
+        android:drawableLeft="@android:drawable/ic_menu_revert"
+        android:text=" Back "
+        android:textColor="#F8F4F4" />
+
 
     <TextView
-        android:text="Post Creation"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#000"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonBack"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
-
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Create Post"
+        android:textColor="#FF9800"
+        android:textSize="30dp" />
 
 
     <EditText
+        android:id="@+id/editPostDescription"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="Enter Post Content"
-        android:textColor="#000"
-        android:ems="10"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/editPostDescription"
-        android:gravity="center" />
+        android:layout_toRightOf="@id/textView7"
+        android:background="#9C1B1800"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Post Content"
+        android:inputType="textMultiLine"
+        android:lineSpacingExtra="8sp"
+        android:lines="5"
+        android:maxLines="5"
+        android:singleLine="false"
+        android:textColor="#FFFCFC"
+        android:textColorHint="#ffffff" />
 
     <Button
+        android:id="@+id/buttonCreatePost"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonCreatePost"
         android:layout_below="@+id/editPostDescription"
         android:layout_marginTop="20dp"
-        android:text="Post IT " />
+        android:background="#FFC107"
+        android:text="Post IT "
+        android:textColor="#000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="118dp"
+        android:layout_height="42dp"
+        android:layout_below="@id/textView"
+        android:layout_alignTop="@id/editPostDescription"
+        android:text="Post:"
+        android:textColor="#FFC107"
+        android:textSize="24dp" />
 
 
 </RelativeLayout>
