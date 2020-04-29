@@ -14,8 +14,8 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 public class DashboardActivity extends AppCompatActivity {
-    String UsernameHolder, EmailHolder, HallHolder, RoomNoHolder;
-    TextView Username, Email, Hall, RoomNo;
+    String UsernameHolder, EmailHolder, HallHolder, RoomNoHolder, PhoneHolder="";
+    TextView Username, Email, Hall, RoomNo, Phone;
     Button LogOut, CreateGroup, JoinGroup, ShowGroup;
     Cursor cursor;
     SQLiteDatabase sqLiteDatabaseObj;
@@ -31,6 +31,8 @@ public class DashboardActivity extends AppCompatActivity {
         Email = (TextView)findViewById(R.id.textViewEmail);
         Hall = (TextView)findViewById(R.id.textViewHall);
         RoomNo = (TextView)findViewById(R.id.textViewRoomNo);
+        Phone = (TextView)findViewById(R.id.textViewPhone);
+
         LogOut = (Button)findViewById(R.id.button1);
         CreateGroup = (Button)findViewById(R.id.button2);
         ShowGroup = (Button)findViewById(R.id.button3);
@@ -49,14 +51,23 @@ public class DashboardActivity extends AppCompatActivity {
             HallHolder = cursor.getString(cursor.getColumnIndex(databaseHelper.Profile_COL_4));
             RoomNoHolder = cursor.getString(cursor.getColumnIndex(databaseHelper.Profile_COL_5));
             UserIDHolder = cursor.getInt(cursor.getColumnIndex(databaseHelper.Profile_COL_1));
-            cursor.close();
         }
+        cursor.close();
+
+
+        cursor = sqLiteDatabaseObj.rawQuery("SELECT ph.UserID,ph.Phone FROM PhoneNo ph where ph.UserID="+UserIDHolder, null);
+        cursor.moveToFirst();
+        while(cursor.isAfterLast() == false) {
+            PhoneHolder = PhoneHolder + cursor.getString(cursor.getColumnIndex("Phone")) + ",  ";
+            cursor.moveToNext();
+        }
+        cursor.close();
 
         Username.setText(Username.getText().toString()+UsernameHolder);
         Email.setText(Email.getText().toString()+EmailHolder);
         Hall.setText(Hall.getText().toString()+HallHolder);
         RoomNo.setText(RoomNo.getText().toString()+RoomNoHolder);
-
+        Phone.setText(Phone.getText().toString()+PhoneHolder);
 
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
